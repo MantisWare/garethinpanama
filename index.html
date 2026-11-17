@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Gareth in Panama — Sales, Rentals and Property Management Advisory</title>
+  <meta name="description" content="Sales, Rentals and Property Management Advisory" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://garethinpanama.com/" />
+  <meta property="og:title" content="Gareth in Panama — Sales, Rentals and Property Management Advisory" />
+  <meta property="og:description" content="Sales, Rentals and Property Management Advisory" />
+  <meta property="og:image" content="https://garethinpanama.com/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gareth in Panama" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gareth in Panama — Sales, Rentals and Property Management Advisory" />
+  <meta name="twitter:description" content="Sales, Rentals and Property Management Advisory" />
+  <meta name="twitter:image" content="https://garethinpanama.com/assets/og-image.png" />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f4ec" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#050f26" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo-180.png" />
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
+  <script defer src="main.js?v=9"></script>
+</head>
+<body>
+
+  <!-- ============ NAV BAR ============ -->
+  <nav id="nav">
+    <a class="logo" href="#top">
+      <img class="logo-img" src="assets/logo-64.png" alt="" width="38" height="38" />
+      <span class="logo-word">Gareth <em>in</em> Panama</span>
+    </a>
+    <div class="nav-controls">
+      <div class="lang-switch" role="group" aria-label="Language / Idioma">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <span class="lang-sep">·</span>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false" data-i18n-aria="aria.theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4.4"/><path d="M12 2.5 V5 M12 19 V21.5 M2.5 12 H5 M19 12 H21.5 M5 5 L6.8 6.8 M17.2 17.2 L19 19 M19 5 L17.2 6.8 M6.8 17.2 L5 19"/>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.5 14.5 A8.5 8.5 0 1 1 9.5 3.5 A7 7 0 0 0 20.5 14.5 Z"/>
+        </svg>
+      </button>
+      <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" data-i18n-aria="aria.burger">
+        <span class="line"></span><span class="line"></span><span class="line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============ FULL-SCREEN MENU ============ -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <ul class="menu-list">
+      <li class="menu-item">
+        <a href="#services" class="menu-link"><span data-i18n="nav.services">Services</span><span class="ml-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg></span></a>
+      </li>
+      <li class="menu-item">
+        <a href="#deals" class="menu-link"><span data-i18n="nav.deals">Deals</span><span class="ml-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg></span></a>
+      </li>
+      <li class="menu-item">
+        <a href="#areas" class="menu-link"><span data-i18n="nav.areas">Areas</span><span class="ml-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg></span></a>
+      </li>
+      <li class="menu-item">
+        <a href="#laws" class="menu-link"><span data-i18n="nav.laws">Laws</span><span class="ml-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg></span></a>
+      </li>
+      <li class="menu-item">
+        <a href="#contact" class="menu-link"><span data-i18n="nav.cta">Get in Touch</span><span class="ml-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg></span></a>
+      </li>
+    </ul>
+    <div class="menu-downloads">
+      <a class="menu-dl" href="docs/panama-guidebook.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3.5 V14.5"/><path d="M7.5 10.5 L12 15 L16.5 10.5"/><path d="M4.5 18 V20 A1.5 1.5 0 0 0 6 21.5 H18 A1.5 1.5 0 0 0 19.5 20 V18"/>
+        </svg>
+        <span data-i18n="dl.guide">Panama Guidebook</span>
+      </a>
+      <a class="menu-dl" href="docs/gip-real-estate-brochure.pdf" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3.5 V14.5"/><path d="M7.5 10.5 L12 15 L16.5 10.5"/><path d="M4.5 18 V20 A1.5 1.5 0 0 0 6 21.5 H18 A1.5 1.5 0 0 0 19.5 20 V18"/>
+        </svg>
+        <span data-i18n="dl.brochure">Real Estate Brochure</span>
+      </a>
+    </div>
+    <div class="menu-foot">
+      <a href="mailto:info@garethinpanama.com" class="menu-email" data-underline-link>info@garethinpanama.com</a>
+      <span class="menu-tag">Panama · EN / ES</span>
+    </div>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="top">
+    <div class="hero-media">
+      <img class="hero-bg" src="assets/images/panama-city-skyline-1920.jpg" srcset="assets/images/panama-city-skyline-500.jpg 500w, assets/images/panama-city-skyline-960.jpg 960w, assets/images/panama-city-skyline-1280.jpg 1280w, assets/images/panama-city-skyline-1920.jpg 1920w" sizes="100vw" fetchpriority="high" alt="Panama City skyline over the bay" data-parallax="target" />
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video class="hero-video" src="assets/videos/panama-city-aerial.mp4" poster="assets/videos/panama-city-aerial-poster.jpg" muted playsinline preload="auto" data-scrub></video>
+        <video class="hero-video hero-video-rev" src="assets/videos/panama-city-aerial.rev.mp4" muted playsinline preload="auto" data-scrub-rev></video>
+      </div>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="sr-only" data-i18n="hero.h1">Gareth in Panama — Live your Best Life!</h1>
+      <div class="hero-top">
+        <div class="hero-aside">
+          <img class="hero-logo" src="assets/logo-256.png" alt="" width="112" height="112" />
+          <p class="hero-list" data-split="lines" data-anim-load data-number="90">
+            <span data-i18n="hero.l1">Real Estate Sales</span><br />
+            <span data-i18n="hero.l2">Rentals</span><br />
+            <span data-i18n="hero.l3">Property Management</span><br />
+            <span data-i18n="hero.l4">Advisory</span>
+          </p>
+        </div>
+        <p class="hero-copy" data-split="lines" data-anim-load data-number="60">
+          <span data-i18n="hero.sub.a">We sell, rent, manage and scout property</span>
+          <a href="#contact" data-underline-link data-underline-yellow data-i18n="hero.sub.b">across Panama.</a>
+        </p>
+      </div>
+      <div class="hero-heading" aria-hidden="true">
+        <div class="hero-row" data-split="chars" data-anim-load data-number="24">
+          <span data-i18n="hero.r1">Gareth</span>
+        </div>
+        <div class="hero-row hero-row-split">
+          <span data-split="chars" data-anim-load data-number="24" data-anim-delay="0.12" data-i18n="hero.r2a">in Panama</span>
+          <span class="hero-knows" data-split="chars" data-anim-load data-number="24" data-anim-delay="0.24" data-i18n="hero.r2b">Live your</span>
+        </div>
+        <div class="hero-row hero-row-end" data-split="chars" data-anim-load data-number="24" data-anim-delay="0.36">
+          <span data-i18n="hero.r3">Best Life!</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="marquee-half">
+        <span class="mq" data-i18n="mq1">Property Management</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq2">Property Sales</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq3">Investment Advisory</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq4">Casco Viejo · Panama City</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq5">Pacific Beaches · Pedasí</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq6">Highlands · Boquete</span><span class="sep">◆</span>
+      </div>
+      <div class="marquee-half">
+        <span class="mq" data-i18n="mq1">Property Management</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq2">Property Sales</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq3">Investment Advisory</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq4">Casco Viejo · Panama City</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq5">Pacific Beaches · Pedasí</span><span class="sep">◆</span>
+        <span class="mq" data-i18n="mq6">Highlands · Boquete</span><span class="sep">◆</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro">
+    <div class="wrap">
+      <h2 class="display" data-split="lines" data-anim-scroll="lines" data-number="50" data-i18n="intro.title">You're probably here to see what we actually do.</h2>
+      <p class="lead" data-split="lines" data-anim-scroll="lines" data-number="30" data-i18n="intro.p">Real Estate, Rentals and Property Management Investment and Relocation Advisory services in Panama 🇵🇦<br /><br />We offer a wealth of knowledge and experience in real estate sales, pre-construction, rentals and property management advisory in Panama City, Pacific Riviera beach areas and mountain towns.<br /><br />Whether you are seeking to acquire a Plan B, or secure a lucrative investment or simply a relocation transition to life in Panama, Central America.<br /><br />We are your invaluable guides and support throughout your investment or relocation process.</p>
+      <a href="#services" class="link-arrow" data-underline-link data-anim-scroll="fade" data-i18n="intro.cta">See our services</a>
+    </div>
+  </section>
+
+  <!-- ============ PERSONAS ============ -->
+  <section id="people" class="personas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-anim-scroll="fade" data-i18n="per.kicker">What matters depends on who you are</span>
+        <h2 class="display" data-split="words" data-anim-scroll="words" data-number="60" data-i18n="per.title">One of these? You're in the right place.</h2>
+      </div>
+      <div class="persona-grid" data-anim-scroll="children-fade" data-number="100">
+        <article class="persona">
+          <figure class="persona-img">
+            <img src="assets/images/personas/persona-buyers.jpg" decoding="async" alt="Advised buyers viewing a Panama apartment" loading="lazy" />
+          </figure>
+          <span class="num">01</span>
+          <h3 data-i18n="p1t">Buyers</h3>
+          <p data-i18n="p1d">You need good options, clear numbers and a deal that holds together.</p>
+        </article>
+        <article class="persona">
+          <figure class="persona-img">
+            <img src="assets/images/personas/persona-sellers.jpg" decoding="async" alt="Sale agreed — handshake between seller and buyer" loading="lazy" />
+          </figure>
+          <span class="num">02</span>
+          <h3 data-i18n="p2t">Sellers</h3>
+          <p data-i18n="p2d">You need the right price and a buyer who actually completes.</p>
+        </article>
+        <article class="persona">
+          <figure class="persona-img">
+            <img src="assets/images/personas/persona-owners.jpg" decoding="async" alt="Owner handing over keys for rental management" loading="lazy" />
+          </figure>
+          <span class="num">03</span>
+          <h3 data-i18n="p3t">Owners</h3>
+          <p data-i18n="p3d">You need steady rental income and a property that's cared for like your own.</p>
+        </article>
+        <article class="persona">
+          <figure class="persona-img">
+            <img src="assets/images/personas/persona-investors.jpg" decoding="async" alt="Investor reviewing numbers with a broker" loading="lazy" />
+          </figure>
+          <span class="num">04</span>
+          <h3 data-i18n="p4t">Investors</h3>
+          <p data-i18n="p4d">You need someone local who tells you what a comparable won't.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-anim-scroll="fade" data-i18n="serv.kicker">Services</span>
+        <h2 class="display" data-split="words" data-anim-scroll="words" data-number="60" data-i18n="serv.title">What we actually do.</h2>
+      </div>
+      <div class="srows">
+        <div class="srow" data-anim-scroll="fade">
+          <div class="row-border" data-anim-scroll="scaleX"></div>
+          <div class="srow-main">
+            <span class="srow-num">01</span>
+            <h3 data-i18n="s1t">Property Management</h3>
+            <div class="srow-body">
+              <p data-i18n="s1d">Hands-off ownership. Tenants placed, rent collected, maintenance done, and monthly reports in plain English or Spanish.</p>
+              <div class="srow-tags">
+                <span data-i18n="s1g1">Tenant screening</span>
+                <span data-i18n="s1g2">Rent collection</span>
+                <span data-i18n="s1g3">Maintenance</span>
+                <span data-i18n="s1g4">Short &amp; long-term rentals</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="srow" data-anim-scroll="fade">
+          <div class="row-border" data-anim-scroll="scaleX"></div>
+          <div class="srow-main">
+            <span class="srow-num">02</span>
+            <h3 data-i18n="s2t">Property Sales</h3>
+            <div class="srow-body">
+              <p data-i18n="s2d">From Casco Viejo apartments to Pedasí land: sourcing, valuation, negotiation and closing — with the paperwork in order.</p>
+              <div class="srow-tags">
+                <span data-i18n="s2g1">Sourcing</span>
+                <span data-i18n="s2g2">Valuation</span>
+                <span data-i18n="s2g3">Negotiation</span>
+                <span data-i18n="s2g4">Closing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="srow" data-anim-scroll="fade">
+          <div class="row-border" data-anim-scroll="scaleX"></div>
+          <div class="srow-main">
+            <span class="srow-num">03</span>
+            <h3 data-i18n="s3t">Investment &amp; Relocation</h3>
+            <div class="srow-body">
+              <p data-i18n="s3d">Local market sense for investors, and a soft landing for people moving to Panama — residency routes included.</p>
+              <div class="srow-tags">
+                <span data-i18n="s3g1">Due diligence</span>
+                <span data-i18n="s3g2">Market research</span>
+                <span data-i18n="s3g3">Residency guidance</span>
+                <span data-i18n="s3g4">Portfolio strategy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEALS ============ -->
+  <section id="deals" class="deals">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-anim-scroll="fade" data-i18n="deals.kicker">Done deals</span>
+        <h2 class="display" data-split="words" data-anim-scroll="words" data-number="60" data-i18n="deals.title">A few we've helped clients close.</h2>
+      </div>
+    </div>
+    <div class="deals-row" data-anim-scroll="children-fade" data-number="110">
+      <article class="deal">
+        <figure class="deal-img">
+          <img src="assets/images/costa-del-este-golf-skyline-1920.jpg" srcset="assets/images/costa-del-este-golf-skyline-500.jpg 500w, assets/images/costa-del-este-golf-skyline-960.jpg 960w, assets/images/costa-del-este-golf-skyline-1280.jpg 1280w" sizes="(max-width: 560px) 78vw, 30vw" decoding="async" alt="Golf course and skyline, Costa del Este" loading="lazy" />
+        </figure>
+        <div class="deal-meta">
+          <span class="deal-district" data-i18n="d1loc">Costa del Este</span>
+          <h3 data-i18n="d1name">Ocean Golf Residences</h3>
+          <div class="deal-sub">240 m² · <span data-i18n="d1type">Apartment</span></div>
+          <span class="deal-status sold" data-i18n="d1status">Sold</span>
+        </div>
+      </article>
+      <article class="deal">
+        <figure class="deal-img">
+          <img src="assets/images/panama-city-casco-viejo-1920.jpg" srcset="assets/images/panama-city-casco-viejo-500.jpg 500w, assets/images/panama-city-casco-viejo-960.jpg 960w, assets/images/panama-city-casco-viejo-1280.jpg 1280w" sizes="(max-width: 560px) 78vw, 30vw" decoding="async" alt="Casco Viejo rooftops" loading="lazy" />
+        </figure>
+        <div class="deal-meta">
+          <span class="deal-district" data-i18n="d2loc">Casco Viejo</span>
+          <h3 data-i18n="d2name">Casa Antigua</h3>
+          <div class="deal-sub">186 m² · <span data-i18n="d2type">Colonial house</span></div>
+          <span class="deal-status sold" data-i18n="d2status">Sold</span>
+        </div>
+      </article>
+      <article class="deal">
+        <figure class="deal-img">
+          <img src="assets/images/paitilla-cinta-costera-1280.jpg" srcset="assets/images/paitilla-cinta-costera-500.jpg 500w, assets/images/paitilla-cinta-costera-960.jpg 960w, assets/images/paitilla-cinta-costera-1280.jpg 1280w" sizes="(max-width: 560px) 78vw, 30vw" decoding="async" alt="Punta Paitilla from the coastal strip" loading="lazy" />
+        </figure>
+        <div class="deal-meta">
+          <span class="deal-district" data-i18n="d3loc">Punta Paitilla</span>
+          <h3 data-i18n="d3name">Paitilla Sky Tower</h3>
+          <div class="deal-sub">210 m² · <span data-i18n="d3type">Apartment</span></div>
+          <span class="deal-status managed" data-i18n="d3status">Managed</span>
+        </div>
+      </article>
+      <article class="deal">
+        <figure class="deal-img">
+          <img src="assets/images/playa-venao-1280.jpg" srcset="assets/images/playa-venao-500.jpg 500w, assets/images/playa-venao-960.jpg 960w, assets/images/playa-venao-1280.jpg 1280w" sizes="(max-width: 560px) 78vw, 30vw" decoding="async" alt="Playa Venao seen from the Pedasí hills" loading="lazy" />
+        </figure>
+        <div class="deal-meta">
+          <span class="deal-district" data-i18n="d4loc">Pedasí</span>
+          <h3 data-i18n="d4name">Venao Hills Lot</h3>
+          <div class="deal-sub">1.4 ha · <span data-i18n="d4type">Land</span></div>
+          <span class="deal-status sold" data-i18n="d4status">Sold</span>
+        </div>
+      </article>
+      <article class="deal">
+        <figure class="deal-img">
+          <img src="assets/images/corredor-sur-1920.jpg" srcset="assets/images/corredor-sur-500.jpg 500w, assets/images/corredor-sur-960.jpg 960w, assets/images/corredor-sur-1280.jpg 1280w" sizes="(max-width: 560px) 78vw, 30vw" decoding="async" alt="Corredor Sur and the city" loading="lazy" />
+        </figure>
+        <div class="deal-meta">
+          <span class="deal-district" data-i18n="d5loc">San Francisco</span>
+          <h3 data-i18n="d5name">Vía España Flat</h3>
+          <div class="deal-sub">132 m² · <span data-i18n="d5type">Apartment</span></div>
+          <span class="deal-status leased" data-i18n="d5status">Leased</span>
+        </div>
+      </article>
+      <article class="deal">
+        <figure class="deal-img">
+          <img src="assets/images/bocas-del-toro-caribbean-1920.jpg" srcset="assets/images/bocas-del-toro-caribbean-500.jpg 500w, assets/images/bocas-del-toro-caribbean-960.jpg 960w, assets/images/bocas-del-toro-caribbean-1280.jpg 1280w" sizes="(max-width: 560px) 78vw, 30vw" decoding="async" alt="Bocas del Toro, Caribbean Panama" loading="lazy" />
+        </figure>
+        <div class="deal-meta">
+          <span class="deal-district" data-i18n="d6loc">Bocas del Toro</span>
+          <h3 data-i18n="d6name">Isla Colón Lot</h3>
+          <div class="deal-sub">0.9 ha · <span data-i18n="d6type">Beach lot</span></div>
+          <span class="deal-status sold" data-i18n="d6status">Sold</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ AREAS (from the Investment Guide brochure) ============ -->
+  <section id="areas" class="areas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-anim-scroll="fade" data-i18n="area.kicker">From our Investment Guide</span>
+        <h2 class="display" data-split="words" data-anim-scroll="words" data-number="60" data-i18n="area.title">Key areas for maximum ROI.</h2>
+        <p class="lead" data-split="lines" data-anim-scroll="lines" data-number="30" data-i18n="area.lead">Properties across these areas deliver 5–8% annual returns, with full title registered in the Public Registry.</p>
+      </div>
+      <div class="area-grid" data-anim-scroll="children-fade" data-number="90">
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-costa-del-este.jpg" alt="Costa del Este — modern high-rise waterfront towers" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a1t">Costa del Este</h3>
+          <p data-i18n="a1d">Premium waterfront high-rises with stunning city views and world-class amenities.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-punta-pacifica.jpg" alt="Punta Pacifica — exclusive oceanfront towers" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a2t">Punta Pacifica</h3>
+          <p data-i18n="a2d">Panama's most exclusive waterfront district — premium oceanfront living on the Pacific.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-avenida-balboa.jpg" alt="Avenida Balboa — coastal boulevard with ocean views" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a3t">Avenida Balboa &amp; City Central</h3>
+          <p data-i18n="a3d">Iconic coastal boulevard on Panama Bay, rapidly developing with new luxury towers.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-ocean-reef.jpg" alt="Ocean Reef Islands — private island marina living" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a4t">Ocean Reef Islands</h3>
+          <p data-i18n="a4d">Private residential island with a marina lifestyle, just minutes from downtown.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-santa-maria.jpg" alt="Santa María — master-planned golf community" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a5t">Santa María</h3>
+          <p data-i18n="a5d">Master-planned golf community, popular with diplomats and international families.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-casco-viejo.jpg" alt="Casco Viejo — UNESCO colonial district at sunset" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a6t">Casco Viejo</h3>
+          <p data-i18n="a6d">UNESCO World Heritage colonial district with the highest short-term rental yields.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-amador.jpg" alt="Amador Causeway — islands at the canal entrance" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a7t">Amador</h3>
+          <p data-i18n="a7d">Historic causeway transformation — early-stage appreciation potential.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-pacific-riviera.jpg" alt="Pacific Riviera — beaches and tropical forest coastline" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a8t">Pacific Riviera</h3>
+          <p data-i18n="a8d">Beach and nature corridor from Punta Chame to Río Hato — vacation-rental territory.</p>
+        </article>
+        <article class="area">
+          <figure class="area-img">
+            <img src="assets/images/areas/area-mountain-towns.jpg" alt="Mountain towns — highland valleys at sunset" loading="lazy" decoding="async" />
+          </figure>
+          <h3 data-i18n="a9t">Mountain Towns</h3>
+          <p data-i18n="a9d">Boquete, El Valle and Cerro Azul — spring-like climate, cloud forests, expat community.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LAWS ============ -->
+  <section id="laws" class="laws">
+    <div class="wrap">
+      <div class="laws-head">
+        <span class="kicker" data-anim-scroll="fade" data-i18n="laws.kicker">When you do a lot of deals, you start to notice patterns.</span>
+        <h2 class="display" data-split="words" data-anim-scroll="words" data-number="60" data-i18n="laws.title">Gareth's Laws of Property</h2>
+      </div>
+      <div class="laws-grid" data-anim-scroll="children-fade" data-number="90">
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law1a">A deal that is 99% done is not done.</p>
+          <p class="law-sub" data-i18n="law1b">That 1% is everything.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law2a">The Casco Viejo buyer and the Costa del Este buyer are not the same person.</p>
+          <p class="law-sub" data-i18n="law2b">Strategy changes with the street.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law3a">Your broker should know the zoning, the yield and the exit.</p>
+          <p class="law-sub" data-i18n="law3b">Not just the beach nearby.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law4a">If you have to lean off the balcony to see the ocean, it's not an ocean view.</p>
+          <p class="law-sub" data-i18n="law4b">A good view should not require imagination.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law5a">Client matters are not public matters.</p>
+          <p class="law-sub" data-i18n="law5b">Discretion is part of the service.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law6a">If the lease is not understood, the asset is not understood.</p>
+          <p class="law-sub" data-i18n="law6b">The real value is in the fine print.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law7a">The most expensive mistake is rushing.</p>
+          <p class="law-sub" data-i18n="law7b">The second most expensive is hesitating.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law8a">Most deals don't fail on price.</p>
+          <p class="law-sub" data-i18n="law8b">They fail on expectations.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law9a">"Not in a rush" usually means "not at that price."</p>
+          <p class="law-sub" data-i18n="law9b">Timing hides the real objection.</p>
+        </div>
+        <div class="law">
+          <div class="law-border" data-anim-scroll="scaleX"></div>
+          <p class="law-main" data-i18n="law10a">Never make the listing prettier than the building.</p>
+          <p class="law-sub" data-i18n="law10b">Tell the truth in words and photos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFF-MARKET ============ -->
+  <section id="offmarket" class="offmarket">
+    <div class="wrap">
+      <h2 class="display" data-split="lines" data-anim-scroll="lines" data-number="50" data-i18n="off.title">We don't list our properties on purpose.</h2>
+      <p class="lead" data-split="lines" data-anim-scroll="lines" data-number="30" data-i18n="off.p">Portals are useful. We use them too. But many of our best opportunities are off-market or privately shared. Tell us what you're looking for and we'll show you more.</p>
+      <a href="#contact" class="btn btn-accent" data-anim-scroll="fade" data-i18n="off.cta">Get in touch</a>
+    </div>
+    <figure class="strip" data-anim-scroll="fade">
+      <img class="strip-img" src="assets/images/boquete-highlands-1920.png" srcset="assets/images/boquete-highlands-500.png 500w, assets/images/boquete-highlands-960.png 960w, assets/images/boquete-highlands-1280.png 1280w, assets/images/boquete-highlands-1920.png 1920w" sizes="100vw" alt="Boquete, Chiriquí Highlands" loading="lazy" data-anim-scroll="scrub-scale" />
+      <figcaption data-i18n="off.cap">Boquete, Chiriquí — from the highlands to the ocean, we cover Panama.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker" data-anim-scroll="fade" data-i18n="cont.kicker">Let's talk</span>
+        <h2 class="display" data-split="words" data-anim-scroll="words" data-number="60" data-i18n="cont.title">Tell us what you're looking for.</h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info" data-anim-scroll="fade">
+          <p data-i18n="cont.p">Every inquiry gets a personal response — usually within a day.</p>
+          <div class="contact-persona" data-anim-scroll="fade">
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7 L12 13 L21 7"/></svg>
+              </div>
+              <div>
+                <div class="ci-label" data-i18n="cont.email">Email</div>
+                <a class="ci-value" href="mailto:info@garethinpanama.com">info@garethinpanama.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21 M12 3 A 13.5 13.5 0 0 1 12 21 A 13.5 13.5 0 0 1 12 3"/></svg>
+              </div>
+              <div>
+                <div class="ci-label" data-i18n="cont.web">Website</div>
+                <a class="ci-value" href="https://garethinpanama.com">garethinpanama.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="ci-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21 C12 21 5 14.5 5 9.5 A7 7 0 0 1 19 9.5 C19 14.5 12 21 12 21 Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              </div>
+              <div>
+                <div class="ci-label" data-i18n="cont.loc">Location</div>
+                <div class="ci-value" data-i18n="cont.locv">Panama City · serving clients worldwide</div>
+              </div>
+            </div>
+          </div>
+          <figure class="gareth-portrait">
+            <img src="assets/images/gareth-portrait.jpg?v=2" alt="Gareth Tyack — Gareth in Panama" width="96" height="96" loading="lazy" decoding="async" />
+            <figcaption>
+              <span class="gp-name">Gareth Tyack</span>
+              <span class="gp-role" data-i18n="cont.role">CEO · Gareth in Panama</span>
+            </figcaption>
+          </figure>
+        </div>
+
+          <div class="downloads">
+            <a class="dl-btn" href="docs/panama-guidebook.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3.5 V14.5"/><path d="M7.5 10.5 L12 15 L16.5 10.5"/><path d="M4.5 18 V20 A1.5 1.5 0 0 0 6 21.5 H18 A1.5 1.5 0 0 0 19.5 20 V18"/>
+              </svg>
+              <span class="dl-text">
+                <span class="dl-name" data-i18n="dl.guide">Panama Guidebook</span>
+                <span class="dl-meta" data-i18n="dl.guide.sub">PDF · 100 pages</span>
+              </span>
+            </a>
+            <a class="dl-btn" href="docs/gip-real-estate-brochure.pdf" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3.5 V14.5"/><path d="M7.5 10.5 L12 15 L16.5 10.5"/><path d="M4.5 18 V20 A1.5 1.5 0 0 0 6 21.5 H18 A1.5 1.5 0 0 0 19.5 20 V18"/>
+              </svg>
+              <span class="dl-text">
+                <span class="dl-name" data-i18n="dl.brochure">Real Estate Brochure</span>
+                <span class="dl-meta" data-i18n="dl.brochure.sub">PDF · 13 pages</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form uses FormSubmit.co — no backend required. On first submission,
+             FormSubmit emails a one-time activation link to info@garethinpanama.com. -->
+        <form id="contactForm" action="https://formsubmit.co/info@garethinpanama.com" method="POST" data-anim-scroll="fade">
+          <!-- honeypot for spam bots -->
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="New inquiry — garethinpanama.com" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <div class="form-row">
+            <div class="field">
+              <label for="name" data-i18n="form.name">Name *</label>
+              <input type="text" id="name" name="name" required placeholder="Your full name" data-i18n-ph="form.ph.name" />
+            </div>
+            <div class="field">
+              <label for="email" data-i18n="form.email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="you@email.com" data-i18n-ph="form.ph.email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="phone" data-i18n="form.phone">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+507 600 0000" />
+            </div>
+            <div class="field">
+              <label for="interest" data-i18n="form.interest">I'm interested in</label>
+              <select id="interest" name="interest">
+                <option value="Property Management" data-i18n="form.o1">Property Management</option>
+                <option value="Buying a Property" data-i18n="form.o2">Buying a Property</option>
+                <option value="Selling a Property" data-i18n="form.o3">Selling a Property</option>
+                <option value="Investment / Relocation" data-i18n="form.o4">Investment / Relocation</option>
+                <option value="Other" data-i18n="form.o5">Something Else</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message" data-i18n="form.message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Tell us a little about your property or what you're looking for..." data-i18n-ph="form.ph.message"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accent btn-submit">
+            <span class="btn-swap">
+              <span class="btn-swap-text"><span data-i18n="form.submit">Send Message</span><span data-i18n="form.submit">Send Message</span></span>
+              <span class="btn-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg>
+              </span>
+            </span>
+          </button>
+          <div class="form-status" id="formStatus" role="status"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="wrap">
+      <a href="#contact" class="footer-cta" data-anim-scroll="fade">
+        <span class="footer-cta-text">
+          <span class="ft-stack"><span data-i18n="nav.cta">Get in Touch</span><span data-i18n="nav.cta">Get in Touch</span></span>
+          <span class="ft-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.95 L16.95 7.05 M16.95 7.05 H7 M16.95 7.05 V16.95"/></svg></span>
+        </span>
+      </a>
+      <div class="foot-grid">
+        <a class="logo" href="#top">
+          <img class="logo-img" src="assets/logo-64.png" alt="" width="38" height="38" />
+          <span class="logo-word">Gareth <em>in</em> Panama</span>
+        </a>
+        <div class="foot-links">
+          <a href="#services" data-underline-link data-i18n="nav.services">Services</a>
+          <a href="#deals" data-underline-link data-i18n="nav.deals">Deals</a>
+          <a href="#areas" data-underline-link data-i18n="nav.areas">Areas</a>
+          <a href="#laws" data-underline-link data-i18n="nav.laws">Laws</a>
+          <a href="#contact" data-underline-link data-i18n="nav.cta">Get in Touch</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <p>© <span id="year"></span> <span data-i18n="footer.text">Gareth in Panama — property, properly.</span></p>
+        <!-- Media attribution (license requirement — kept in source, visually hidden):
+     Photographs via Wikimedia Commons (CC BY / CC BY-SA, see individual file credits)
+     Video via Pexels (Pexels License, attribution not required but appreciated) -->
+        <p class="foot-credit">Panama City · <a href="mailto:info@garethinpanama.com">info@garethinpanama.com</a><span class="sr-only"> · <span data-i18n="footer.credit">Photography via Wikimedia Commons</span> · <span data-i18n="footer.video">Video via Pexels</span></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ SCROLL TO TOP ============ -->
+  <button class="to-top" id="toTop" aria-label="Back to top" data-i18n-aria="aria.toTop">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 19 V5"/><path d="M5 12 L12 5 L19 12"/>
+    </svg>
+  </button>
+
+</body>
+</html>

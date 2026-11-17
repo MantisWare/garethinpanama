@@ -1,0 +1,29 @@
+# Secrets and credentials - never commit
+credentials.age
+credentials.recipient.txt
+*.age
+*.agekey
+.netrc
+*.pem
+*.key
+id_*
+.env
+.env.*
+
+# Server junk
+error_log
+error_log.*
+*.log
+.ftpquota
+.DS_Store
+._*
+.well-known/acme-challenge/
+.well-known/acme
+cgi-bin/
+
+# Never import the cPanel home
+.cpanel/
+mail/
+ssl/
+logs/
+live-mirror/
