@@ -1,19 +1,25 @@
 #!/usr/bin/env bash
-# Read-only FTPS mirror of the live garethinpanama.com web root into a local folder.
-# Never uploads, deletes, or changes anything on the server.
+# Read-only FTPS mirror of the live garethinpanama.com web root (public_html)
+# into a local folder. Never uploads, deletes, or changes anything on the server.
 #
-# Usage:
-#   AGE_KEYFILE=/path/to/key ./scripts/mirror-live.sh [dest-dir]
+# Usage (from a repo checkout or the handover package):
+#   AGE_KEYFILE=/path/to/key CREDENTIALS_AGE=/path/to/credentials.age \
+#     ./scripts/mirror-live.sh [dest-dir]
 #
-# Defaults dest-dir to ./live-mirror next to the handover package root,
-# or $LIVE_MIRROR if set.
+# dest-dir defaults to $LIVE_MIRROR, else a fresh dated folder
+# $HOME/.gip-work/live-mirror-YYYYMMDD-HHMMSS (outside the repo, so it never
+# overwrites your working copy). Use an empty folder so files deleted on the
+# server do not linger locally. Then run ./scripts/check-drift.sh <dest-dir>.
 
 set -euo pipefail
 set +x
 # shellcheck source=_ftps_common.sh
 source "$(cd "$(dirname "$0")" && pwd)/_ftps_common.sh"
 
-DEST="${1:-${LIVE_MIRROR:-$(_handover_root)/live-mirror}}"
+DEST="${1:-${LIVE_MIRROR:-$HOME/.gip-work/live-mirror-$(date +%Y%m%d-%H%M%S)}}"
+if [[ -d "$DEST" && -n "$(ls -A "$DEST" 2>/dev/null)" ]]; then
+  echo "Note: $DEST is not empty. Files removed on the server will not be removed here." >&2
+fi
 mkdir -p "$DEST"
 DEST="$(cd "$DEST" && pwd)"
 
@@ -26,17 +32,16 @@ echo "Remote web root: ${REMOTE}"
 echo "Only public_html is mirrored; the cPanel home is never downloaded."
 echo "Local destination: ${DEST}"
 
-# Exact mirror, TLS already forced in the prelude:
-#   set ftp:ssl-force true
-#   set ftp:ssl-protect-data true
-#   mirror --verbose --continue --only-missing?  NO — we want a full refresh of existing files too.
+# Download-only mirror (no --reverse, no --delete, no rm/put). TLS is forced in the prelude.
 # shellcheck disable=SC2046
 run_lftp "
-cd ${REMOTE};
+cd \"${REMOTE}\";
 cls -l;
-mirror --verbose --continue --no-perms --no-umask $(lftp_exclude_flags) . ${DEST};
+mirror --verbose --continue --no-perms --no-umask $(lftp_exclude_flags) . \"${DEST}\";
 "
 
 echo "Read-only mirror finished. No server files were changed."
-echo "Files:" 
+printf 'Files: '
 find "$DEST" -type f ! -name .DS_Store | wc -l
+echo "Next: ./scripts/check-drift.sh \"$DEST\""
+echo "$DEST"

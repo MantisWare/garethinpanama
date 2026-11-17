@@ -3,7 +3,11 @@
 # Never uploads, deletes, or changes anything on the server.
 #
 # Usage:
-#   AGE_KEYFILE=/path/to/key ./scripts/backup-live.sh [backup-parent-dir]
+#   AGE_KEYFILE=/path/to/key CREDENTIALS_AGE=/path/to/credentials.age \
+#     ./scripts/backup-live.sh [backup-parent-dir]
+#
+# backup-parent-dir defaults to $BACKUP_ROOT, else $HOME/backups/garethinpanama
+# (outside the repo). Each run creates live-YYYYMMDD-HHMMSS inside it.
 
 set -euo pipefail
 set +x
@@ -26,8 +30,8 @@ echo "Backup destination: ${DEST}"
 
 # shellcheck disable=SC2046
 run_lftp "
-cd ${REMOTE};
-mirror --verbose --continue --no-perms --no-umask $(lftp_exclude_flags) . ${DEST};
+cd \"${REMOTE}\";
+mirror --verbose --continue --no-perms --no-umask $(lftp_exclude_flags) . \"${DEST}\";
 "
 
 echo "Backup finished (read-only). Keep this folder until the deploy has been verified."

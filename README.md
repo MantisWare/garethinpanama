@@ -1,17 +1,16 @@
-# Gareth in Panama — handover package
+# garethinpanama.com
 
-Start with **HANDOVER.md**.
+The repo root is the live `public_html` of https://garethinpanama.com (first commit tagged `live-snapshot-2026-11-17`).
 
-`site/` is the older 4 September 2026 Mac copy. It is **not** the current production tree. A live FTPS mirror of `public_html` is the source of truth (`scripts/mirror-live.sh`).
+Start with **[docs/HANDOVER.md](docs/HANDOVER.md)**: the agent's role, approval rules, workflow, FTPS deploy and credentials.
 
-The age private key is not in this package. Decrypt credentials with:
-
-```bash
-age -d -i <path-to-keyfile> credentials.age
-```
-
-Never use plain FTP. Never commit `credentials.age` or any keyfile. The public clone URL is:
+- `scripts/`: FTPS mirror, drift check, backup and deploy (explicit TLS on port 21, never plain FTP). These files are never uploaded to the web root.
+- The credentials live in `credentials.age`, which is delivered in the handover package and kept **outside** this repo. The age key is delivered separately.
 
 ```bash
-git clone https://github.com/MantisWare/garethinpanama.git
+export AGE_KEYFILE=/path/to/keyfile
+export CREDENTIALS_AGE=/path/to/credentials.age
+age -d -i "$AGE_KEYFILE" "$CREDENTIALS_AGE" >/dev/null && echo "decrypt ok"   # never print the password
 ```
+
+Never commit secrets, and run gitleaks before every push. Production deploys need Waldo's approval.

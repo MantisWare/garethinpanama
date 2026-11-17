@@ -5,7 +5,7 @@
 set -euo pipefail
 set +x
 
-# Verified 16 Nov 2026: the FTP account can see the cPanel home, but the
+# Verified 16 and 17 Nov 2026: the FTP account can see the cPanel home, but the
 # website lives in public_html (www is a symlink to it). Never mirror /.
 : "${REMOTE_PATH:=public_html}"
 
@@ -13,10 +13,17 @@ set +x
 # local DNS does not reach the origin, e.g. an HTTP proxy intercepts the name).
 : "${FTP_CONNECT_IP:=}"
 
+# Root of the checkout that contains scripts/. In the GitHub repo this is the
+# site root (= public_html). In the handover zip it is the package folder.
 _handover_root() {
   local here
   here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
   cd "$here/.." && pwd
+}
+
+# True when the scripts are running from a git checkout of the site repo.
+_is_repo_checkout() {
+  [[ -d "$(_handover_root)/.git" ]]
 }
 
 _LFTP_TMP=""
@@ -45,10 +52,17 @@ load_ftps_creds() {
     exit 2
   fi
   if [[ -z "$agefile" ]]; then
-    agefile="$(_handover_root)/credentials.age"
+    # credentials.age never lives in the (public) repo. Only fall back to a
+    # sibling file when running from the unzipped handover package.
+    if ! _is_repo_checkout && [[ -f "$(_handover_root)/credentials.age" ]]; then
+      agefile="$(_handover_root)/credentials.age"
+    else
+      echo "Set CREDENTIALS_AGE to the path of credentials.age (kept outside the git repo, e.g. in the handover package)." >&2
+      exit 2
+    fi
   fi
   if [[ ! -f "$agefile" ]]; then
-    echo "credentials.age not found at $agefile (set CREDENTIALS_AGE)." >&2
+    echo "credentials.age not found at $agefile (check CREDENTIALS_AGE)." >&2
     exit 2
   fi
   if ! command -v age >/dev/null 2>&1; then
@@ -146,7 +160,15 @@ lftp_exclude_flags() {
 --exclude-glob docs/HANDOVER.md \
 --exclude-glob README.md \
 --exclude-glob .gitignore \
---exclude-glob .gitleaksignore"
+--exclude-glob .gitleaksignore \
+--exclude-glob .github/ \
+--exclude-glob HANDOVER.md \
+--exclude-glob credentials.recipient.txt \
+--exclude-glob .netrc \
+--exclude-glob *.pem \
+--exclude-glob *.key \
+--exclude-glob .env \
+--exclude-glob live-mirror*/"
 }
 
 lftp_prelude() {
